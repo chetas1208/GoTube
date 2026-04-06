@@ -144,7 +144,3 @@ make build-web
 7. Worker uploads processed MP4, then marks the video `ready`
 8. Studio polls while uploads are in flight so the thumbnail appears before the video reaches `ready`
 9. Watch page fetches a signed playback URL, then streams from object storage
-
-## License
-
-MIT
