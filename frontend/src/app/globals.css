@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --page-bg-top: #eef6ff;
+    --page-bg-mid: #f8fbff;
+    --page-bg-bottom: #f4f7fb;
+  }
+
+  html {
+    min-height: 100%;
+  }
+
+  body {
+    @apply min-h-screen text-gray-900 antialiased;
+    background:
+      radial-gradient(circle at top left, rgba(96, 165, 250, 0.18), transparent 28%),
+      radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 24%),
+      linear-gradient(180deg, var(--page-bg-top) 0%, var(--page-bg-mid) 35%, var(--page-bg-bottom) 100%);
+  }
+}
+
+@layer utilities {
+  @keyframes glass-sweep {
+    0% {
+      transform: translateX(-45%);
+      opacity: 0;
+    }
+    18% {
+      opacity: 1;
+    }
+    55% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(320%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes float-orb {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(0, 14px, 0) scale(1.08);
+    }
+  }
+
+  @keyframes dropdown-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px) scale(0.97);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .animate-glass-sweep {
+    animation: glass-sweep 13s linear infinite;
+  }
+
+  .animate-float-orb {
+    animation: float-orb 8s ease-in-out infinite;
+  }
+
+  .animate-float-orb-delayed {
+    animation: float-orb 10s ease-in-out infinite;
+    animation-delay: 1.2s;
+  }
+
+  .animate-dropdown-in {
+    animation: dropdown-in 180ms ease-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
